@@ -1,0 +1,92 @@
+<form [formGroup]="employeeForm" class="max-w-md mx-auto">
+  <div class="mb-4">
+    <span class="block mb-1">Name</span>
+    <input
+      id="employeeName"
+      type="text"
+      pInputText
+      name="empName"
+      formControlName="empName"
+      class="form-control input-lg w-full"
+      placeholder="Name"
+    />
+    <span *ngIf="f.empName?.errors && submitted" class="text-red-500 text-sm">
+      <ng-container *ngIf="f.empName?.errors.required">
+        Name Field is Required
+      </ng-container>
+      <ng-container *ngIf="f.empName?.errors.pattern">
+        Name may only contain alphabetic characters
+      </ng-container>
+    </span>
+  </div>
+
+  <div class="mb-4">
+    <span class="block mb-1">Email</span>
+    <input
+      id="employeeEmail"
+      type="text"
+      pInputText
+      name="empEmail"
+      formControlName="empEmail"
+      class="form-control input-lg w-full"
+      placeholder="Email"
+    />
+    <span *ngIf="f.empEmail?.errors && submitted" class="text-red-500 text-sm">
+      <ng-container *ngIf="f.empEmail?.errors.email || f.empEmail?.errors.pattern">
+        Email not valid
+      </ng-container>
+      <ng-container *ngIf="f.empEmail?.errors.required">
+        Email is Required
+      </ng-container>
+    </span>
+  </div>
+
+  <div class="mb-4">
+    <span class="block mb-1">Phone</span>
+    <input
+      pInputText
+      id="employeemobile"
+      name="empPhone"
+      formControlName="empPhone"
+      class="form-control input-lg w-full"
+      placeholder="Phone"
+    />
+    <span *ngIf="f.empPhone?.errors && submitted" class="text-red-500 text-sm">
+      <ng-container *ngIf="f.empPhone?.errors.required">
+        Phone is Required
+      </ng-container>
+      <ng-container *ngIf="f.empPhone?.errors.pattern">
+        Mobile number not valid
+      </ng-container>
+    </span>
+  </div>
+
+  <div class="mb-4">
+    <span class="block mb-1">Address</span>
+    <textarea
+      inputId="employeeAddress"
+      rows="3"
+      cols="30"
+      formControlName="empAddress"
+      class="form-control p-inputtext input-lg w-full"
+      placeholder="Address"
+    ></textarea>
+    <span *ngIf="f.empAddress?.errors && submitted" class="text-red-500 text-sm">
+      <ng-container *ngIf="f.empAddress?.errors.required">
+        Address is Required
+      </ng-container>
+    </span>
+  </div>
+
+  <div class="text-center mt-4">
+    <p-button
+      pRipple
+      styleClass="p-button-success"
+      (click)="addEmployee()"
+      [disabled]="employeeForm.invalid"
+    >
+      Add New
+    </p-button>
+  </div>
+</form>
+<p-toast></p-toast>
