@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "http://task.soft-zone.net",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

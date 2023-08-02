@@ -10,7 +10,10 @@
       class="form-control input-lg w-full"
       placeholder="Name"
     />
-    <span *ngIf="f.empName?.errors && submitted" class="text-red-500 text-sm">
+    <span
+      *ngIf="f.empName?.errors && (f.empName.dirty || f.empName.touched)"
+      class="text-red-500 text-sm"
+    >
       <ng-container *ngIf="f.empName?.errors.required">
         Name Field is Required
       </ng-container>
@@ -31,8 +34,13 @@
       class="form-control input-lg w-full"
       placeholder="Email"
     />
-    <span *ngIf="f.empEmail?.errors && submitted" class="text-red-500 text-sm">
-      <ng-container *ngIf="f.empEmail?.errors.email || f.empEmail?.errors.pattern">
+    <span
+      *ngIf="f.empEmail?.errors && (f.empEmail.dirty || f.empEmail.touched)"
+      class="text-red-500 text-sm"
+    >
+      <ng-container
+        *ngIf="f.empEmail?.errors.email || f.empEmail?.errors.pattern"
+      >
         Email not valid
       </ng-container>
       <ng-container *ngIf="f.empEmail?.errors.required">
@@ -51,7 +59,10 @@
       class="form-control input-lg w-full"
       placeholder="Phone"
     />
-    <span *ngIf="f.empPhone?.errors && submitted" class="text-red-500 text-sm">
+    <span
+      *ngIf="f.empPhone?.errors && (f.empPhone.dirty || f.empPhone.touched)"
+      class="text-red-500 text-sm"
+    >
       <ng-container *ngIf="f.empPhone?.errors.required">
         Phone is Required
       </ng-container>
@@ -71,7 +82,10 @@
       class="form-control p-inputtext input-lg w-full"
       placeholder="Address"
     ></textarea>
-    <span *ngIf="f.empAddress?.errors && submitted" class="text-red-500 text-sm">
+    <span
+      *ngIf="f.empAddress?.errors && (f.empAddress.dirty || f.empAddress.touched)"
+      class="text-red-500 text-sm"
+    >
       <ng-container *ngIf="f.empAddress?.errors.required">
         Address is Required
       </ng-container>

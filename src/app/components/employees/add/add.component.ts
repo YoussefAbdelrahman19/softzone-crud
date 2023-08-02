@@ -46,7 +46,7 @@ export class AddComponent implements OnInit {
         [Validators.required, Validators.pattern('01(0|1|2|5)[0-9]{8}$')],
       ],
       empAddress: [null, Validators.required],
-    });
+    },{ updateOn: 'blur' });
   }
 
   get f() {
